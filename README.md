@@ -13,7 +13,7 @@ import promiseHoc from 'react-promise-hoc'
 const Post = ({ isLoading, post }) => (
   <div>
     <h1>{post.title}</h1>
-    <h1>{post.content}</h1>
+    <p>{post.content}</p>
   </div>
 )
 
