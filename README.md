@@ -23,6 +23,7 @@ export default promiseHoc((props) => ({
 }))(Post)
 
 // also possible to provide an array
+// notice: this will provide a prop called data which will be an array of the resolved data
 export default promiseHoc((props) => ([
   axios.get(`https://jsonplaceholder.typicode.com/posts/${props.id}`)
 ]))(Post)
