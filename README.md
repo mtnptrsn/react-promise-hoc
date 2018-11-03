@@ -27,15 +27,6 @@ export default promiseHoc((props) => ({
 export default promiseHoc((props) => ([
   axios.get(`https://jsonplaceholder.typicode.com/posts/${props.id}`)
 ]))(Post)
-
-// with recompose
-const enhance = compose(
-  promiseHoc((props) => ({
-    post: axios.get(`https://jsonplaceholder.typicode.com/posts/${props.id}`)
-  }))
-)
-
-export default enhance(Post)
 ```
 
 ## Documentation
