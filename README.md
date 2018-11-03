@@ -35,4 +35,4 @@ export default promiseHoc((props) => ([
 |-----------|---------|--------------------------------------------------------------|
 | isLoading | boolean | Set to true when promise(s) are pending and false when done. |
 | data      | array   | If array is passed this will be set to the resolved data     |
-| err       | object  | The error object if one ore more promises got rejected.      |
+| err       | object  | The error object if one or more promises got rejected.      |
