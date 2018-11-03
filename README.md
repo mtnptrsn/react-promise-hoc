@@ -10,10 +10,11 @@ import React from 'react'
 import {compose} from 'recompose'
 import promiseHoc from 'react-promise-hoc'
 
-const Post = ({ isLoading, post }) => (
+const Post = ({ isLoading, post, refetch }) => (
   <div>
     <h1>{post.title}</h1>
     <p>{post.content}</p>
+    <button onClick={ refetch }>Refetch</button>
   </div>
 )
 
