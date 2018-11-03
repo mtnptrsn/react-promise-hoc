@@ -14,7 +14,7 @@ const Post = ({ isLoading, post, refetch }) => (
   <div>
     <h1>{post.title}</h1>
     <p>{post.content}</p>
-    <button onClick={ refetch }>Refetch</button>
+    <button onClick={refetch}>Refetch</button>
   </div>
 )
 
