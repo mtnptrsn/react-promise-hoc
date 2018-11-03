@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { arrayToMap } from './utils';
 
-const reactFetch = (promiseFn: (props: any) => { [key: string]: Promise<any> } | Promise<any>[]) =>
-  (WrappedComponent: React.ComponentType<any>) => class ReactFetch extends Component {
+const promiseHoc = (promiseFn: (props: any) => { [key: string]: Promise<any> } | Promise<any>[]) =>
+  (WrappedComponent: React.ComponentType<any>) => class PromiseHoc extends Component {
     state = {
       isLoading: true,
       err: null,
@@ -55,4 +55,4 @@ const reactFetch = (promiseFn: (props: any) => { [key: string]: Promise<any> } |
     }
   }
 
-export default reactFetch
+export default promiseHoc
