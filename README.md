@@ -30,8 +30,9 @@ export default promiseHoc((props) => ([
 
 ## Documentation
 ### Injected props to child component
-| Props     | Type    | Description                                                             |
-|-----------|---------|-------------------------------------------------------------------------|
-| isLoading | boolean | Set to true when promise(s) are pending and false when done.            |
-| data      | array   | If an array is passed this will be set to the resolved data as an array |
-| err       | object  | The error object if one ore more promises got rejected.                 |
+| Props     | Type     | Description                                                             |
+|-----------|----------|-------------------------------------------------------------------------|
+| isLoading | boolean  | Set to true when promise(s) are pending and false when done.            |
+| data      | array    | If an array is passed this will be set to the resolved data as an array |
+| err       | object   | The error object if one ore more promises got rejected.                 |
+| refetch   | function | When called the promises will reinvoke                                  |
