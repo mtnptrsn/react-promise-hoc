@@ -1,0 +1,20 @@
+{
+  "name": "react-promise-hoc",
+  "version": "0.0.9",
+  "description": "React HOC for easy promise handling.",
+  "main": "build/index.js",
+  "typings": "build/index.d.ts",
+  "author": "Mårten Pettersson <mtnptrsn>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf ./build"
+  },
+  "dependencies": {
+    "react": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.4.18",
+    "typescript": "^3.1.6"
+  }
+}
