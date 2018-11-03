@@ -17,7 +17,6 @@ const Post = ({ isLoading, post }) => (
   </div>
 )
 
-// the regular way
 export default promiseHoc((props) => ({
   post: axios.get(`https://jsonplaceholder.typicode.com/posts/${props.id}`)
 }))(Post)
