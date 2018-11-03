@@ -2,7 +2,7 @@
 React HOC for easy promise handling.
 
 ## Installation
-`yarn add react-promise-hoc`
+`yarn add react-promise-hoc` or `npm i react-promise-hoc`
 
 ## Usage
 ```javascript
