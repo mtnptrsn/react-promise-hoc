@@ -7,16 +7,18 @@ React HOC for easy promise handling.
 ## Usage
 ```javascript
 import React from 'react'
-import {compose} from 'recompose'
 import promiseHoc from 'react-promise-hoc'
 
-const Post = ({ isLoading, post, refetch }) => (
-  <div>
-    <h1>{post.title}</h1>
-    <p>{post.content}</p>
-    <button onClick={refetch}>Refetch</button>
-  </div>
-)
+const Post = ({ isLoading, post, refetch }) =>
+  isLoading
+    ? <p>Loading...</p>
+    : (
+      <div>
+        <h1>{post.title}</h1>
+        <p>{post.content}</p>
+        <button onClick={refetch}>Refetch</button>
+      </div>
+    )
 
 export default promiseHoc((props) => ({
   post: axios.get(`https://jsonplaceholder.typicode.com/posts/${props.id}`)
