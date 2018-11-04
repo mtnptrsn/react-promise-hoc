@@ -6,10 +6,10 @@ React HOC for easy promise handling.
 
 ## Usage
 ```javascript
-import React from 'react'
-import promiseHoc from 'react-promise-hoc'
+import React, { SFC } from 'react'
+import promiseHoc, { InjectedPromiseHocProps } from 'react-promise-hoc'
 
-const Post = ({ isLoading, post, refetch }) =>
+const Post: SFC<InjectedPromiseHocProps> = ({ isLoading, post, refetch }) =>
   isLoading
     ? <p>Loading...</p>
     : (
