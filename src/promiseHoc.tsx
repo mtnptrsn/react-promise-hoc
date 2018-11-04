@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { PromiseFunction } from './types';
 import { arrayToMap } from './utils';
 
-const promiseHoc = (promiseFn: (props: any) => { [key: string]: Promise<any> } | Promise<any>[]) =>
+const promiseHoc = (promiseFn: PromiseFunction) =>
   (WrappedComponent: React.ComponentType<any>) => class PromiseHoc extends Component {
     state = {
       isLoading: true,

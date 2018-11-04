@@ -4,3 +4,5 @@ export interface InjectedPromiseHocProps<D = any, E = any> {
   data?: D[],
   err?: E,
 }
+
+export type PromiseFunction = (props: any) => { [key: string]: Promise<any> } | Promise<any>[]
