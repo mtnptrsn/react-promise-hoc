@@ -22,7 +22,7 @@ const Post: SFC<InjectedPromiseHocProps> = ({ isLoading, post, refetch }) =>
 
 export default promiseHoc((props) => ({
   post: axios.get(`https://jsonplaceholder.typicode.com/posts/${props.id}`)
-}))(Post)
+}), (err, data, props) => { /* gets invoked when promise ir rejected / resolved */ })(Post)
 
 // also possible to provide an array
 // notice: this will provide a prop called data which will be an array of the resolved data

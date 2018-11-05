@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { PromiseFunction } from './types';
+import { PromiseFunction, CallbackFn } from './types';
 import { arrayToMap } from './utils';
 
-const promiseHoc = (promiseFn: PromiseFunction) =>
+const promiseHoc = (promiseFn: PromiseFunction, callback: CallbackFn) =>
   (WrappedComponent: React.ComponentType<any>) => class PromiseHoc extends Component {
     state = {
       isLoading: true,
@@ -34,14 +34,21 @@ const promiseHoc = (promiseFn: PromiseFunction) =>
     onPromiseResolved = (keys: string[] | null) => (result: any[] | any) => {
       const resolvedPromiseData = keys ? arrayToMap(keys, result) : null
 
+      if (callback)
+        callback(null, resolvedPromiseData || result, this.props)
+
       this.setState({
         ...(resolvedPromiseData ? { resolvedPromiseData } : { data: result }),
         isLoading: false,
       })
     }
 
-    onPromiseRejected = (err: any) =>
+    onPromiseRejected = (err: any) => {
+      if (callback)
+        callback(err, null, this.props)
+        
       this.setState({ err, isLoading: false, })
+    }
 
     render() {
       const { resolvedPromiseData, ...state } = this.state
