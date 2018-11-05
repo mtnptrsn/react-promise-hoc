@@ -9,7 +9,8 @@
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf ./build",
-    "prepare-release": "run-s clean build"
+    "prepare-release": "run-s clean build",
+    "prepublish": "yarn prepare-release"
   },
   "dependencies": {},
   "devDependencies": {

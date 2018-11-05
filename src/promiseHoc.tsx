@@ -34,8 +34,11 @@ const promiseHoc = (promiseFn: PromiseFunction, callback?: CallbackFn) =>
     onPromiseResolved = (keys: string[] | null) => (result: any[] | any) => {
       const resolvedPromiseData = keys ? arrayToMap(keys, result) : null
 
-      if (callback)
-        callback(null, resolvedPromiseData || result, this.props)
+      if (callback) {
+        const shouldContinue = callback(null, resolvedPromiseData || result, this.props)
+        if (shouldContinue === false)
+          return null
+      }
 
       this.setState({
         ...(resolvedPromiseData ? { resolvedPromiseData } : { data: result }),
@@ -44,8 +47,11 @@ const promiseHoc = (promiseFn: PromiseFunction, callback?: CallbackFn) =>
     }
 
     onPromiseRejected = (err: any) => {
-      if (callback)
-        callback(err, null, this.props)
+      if (callback) {
+        const shouldContinue = callback(err, null, this.props)
+        if (shouldContinue === false)
+          return null
+      }
         
       this.setState({ err, isLoading: false, })
     }
