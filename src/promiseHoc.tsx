@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { PromiseFunction, CallbackFn } from './types';
 import { arrayToMap } from './utils';
 
-const promiseHoc = (promiseFn: PromiseFunction, callback: CallbackFn) =>
+const promiseHoc = (promiseFn: PromiseFunction, callback?: CallbackFn) =>
   (WrappedComponent: React.ComponentType<any>) => class PromiseHoc extends Component {
     state = {
       isLoading: true,
