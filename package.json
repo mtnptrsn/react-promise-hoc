@@ -1,6 +1,6 @@
 {
   "name": "react-promise-hoc",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "React HOC for easy promise handling.",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
